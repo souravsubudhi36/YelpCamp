@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+        <link rel="shortcut icon" href="/favicon.ico" >
+        <link rel='stylesheet' href='/home.css' />
+
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
+        <style>
+        *{
+          font-family: "Quicksand";
+        }
+
+        </style>
+
+    </head>
+    <body>
+<div class='laptop'>
+
+
+      <div class='hero'>
+          <div class='ignite' id='op6'>
+            Ignite...
+          </div>
+      </div>
+
+      <div class='explorepics'>
+        <div class='explore' id='op1'>
+          Explore...
+        </div>
+      </div>
+      <div class='exploreimages1'>
+
+      </div>
+      <div class='dream'>
+        <div class='dreamtext' id='op2'>
+          Dream...
+        </div>
+      </div>
+      <div class='dreamfall'>
+
+      </div>
+      <div class='camp'>
+        <div class='camptext' id='op4'>
+          Camp
+        </div>
+      </div>
+      <div class='yelpcamp'>
+        <div class='yelp' id='op3'>
+          Yelp
+        </div>
+        <div class='yelpcampmobile'>
+          YelpCamp
+        </div>
+      </div>
+
+      <div class='final'>
+
+      </div>
+      <a href='/campgrounds' style="text-decoration:none;color:white">
+      <div class='end'>
+        <div class='to'>
+          To CampGrounds <i class="fas fa-arrow-circle-right"></i>
+        </div>
+      </div>
+      </a>
+
+
+
+
+
+    </body>
+
+    <script>
+
+    const execute = function() {
+      var controller = new ScrollMagic.Controller();
+
+      var pinIntro = new ScrollMagic.Scene({
+        triggerElement: '.explore',
+        triggerHook: 0,
+        duration: "55%"
+      })
+      .setPin('.explore', {pushFollowers: false})
+      .addTo(controller);
+
+      var tl = new TimelineMax();
+      tl
+        .to(op1,0.1, {x:1000});
+
+
+      var moverightexplore = new ScrollMagic.Scene({
+        triggerElement: '.exploreimages1',
+        duration: '80%',
+        triggerHook: 0
+      })
+      .setTween(tl)
+      .addTo(controller);
+
+    
+
+      var tl2 = new TimelineMax();
+      tl2
+        .to(op2,1, {x:700})
+        .to(op2, 1, {rotation:-90,scale:2, transformOrigin:'bottom'})
+        .to(op2, 1, {y:-400, autoAlpha:0}, 4);
+
+
+      var moverightexplore = new ScrollMagic.Scene({
+        triggerElement: '.dream',
+        duration: '80%',
+        triggerHook: 0.25
+      })
+      .setTween(tl2)
+      .addTo(controller);
+
+      var pinIntro2 = new ScrollMagic.Scene({
+        triggerElement: '.camp',
+        triggerHook: 0.2,
+        duration: "55%"
+      })
+      .setPin('.camptext', {pushFollowers: false})
+      .addTo(controller);
+
+      var tl3 = new TimelineMax();
+      tl3
+        .to(op3,1, {x:350}, 0)
+        .to(op4,0.7, {x:180}, 0.4)
+        .to(op4,0.3, {x:130});
+
+
+      var moverightexplore = new ScrollMagic.Scene({
+        triggerElement: '.yelpcamp',
+        duration: '20%',
+        triggerHook: 0.15
+      })
+      .setTween(tl3)
+      .addTo(controller);
+
+      var pinIntro3 = new ScrollMagic.Scene({
+        triggerElement: '.yelpcamp',
+        triggerHook: 0
+      })
+      .setPin('.yelp', {pushFollowers: false})
+      .addTo(controller);
+      var pinIntro4 = new ScrollMagic.Scene({
+        triggerElement: '.yelpcamp',
+        triggerHook: 0
+      })
+      .setPin('.camp', {pushFollowers: false})
+      .addTo(controller);
+    }
+    if(window.innerWidth >992){
+      execute();
+    }
+
+    </script>
+</html>

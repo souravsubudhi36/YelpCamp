@@ -1,0 +1,777 @@
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.footerr{
+  /* box-shadow: 0 0 20px black; */
+  margin-top: 30px;
+  width: 100%;
+  /* background: #343a40; */
+  background: url('/footer.jpg');
+  background-position: center;
+  background-size: cover;
+
+  height: 80px;
+}
+.iconsforsocial{
+  float:right;
+  margin-top: 5px;
+  margin-right: 15px;
+  color:white;
+  font-size: 30px
+}
+.f{
+  margin : 0 10px;
+}
+.footertitle{
+  color: white;
+  font-size: 15px;
+  position:absolute;
+  right: 20px;
+  bottom: 10px;
+  float: right;
+}
+.footertop{
+  position: absolute;
+  left:0;
+  bottom:0;
+  height: 80px;
+  background: rgb(211,211,211);
+  color: black;
+  font-size: 30px;
+  text-align: center;
+  padding-top:15px;
+  width: 70px;
+}
+#menu {
+  box-shadow: inset -10px 0px 50px rgba(0, 0, 0, 0.7);
+  /* background-color: #343a40; */
+  background: url('/menu.jpg');
+  background-position: center;
+  background-size: cover;
+  padding-top: 85px;
+}
+.panel {
+  background: rgb(211, 211, 211);
+  width: 100%;
+}
+
+.menu-item {
+  margin: 0px 5px;
+  color: white;
+  line-height: 40px;
+  padding-left: 15px;
+}
+.menu-item a {
+  display: block;
+}
+.menu-item:hover {
+  background-color: #697582;
+}
+.menu-item a:hover {
+  text-decoration: none;
+}
+.menu-link {
+  text-decoration: none;
+  color: white;
+}
+.jumbotron {
+  text-align: center;
+  padding-bottom: 35px;
+  margin-top: 100px;
+  padding-top: 35px;
+  opacity: 0.9;
+}
+.img-thumbnail {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.nav-item,
+.menu-item {
+  cursor: pointer;
+}
+/* MODAL */
+
+.modal {
+  top: 55px;
+  background: url("/loginmodal.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.mymodalinput {
+  display: inline-block;
+  width: 85%;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  line-height: 30px;
+  font-size: 25px;
+  padding: 5px;
+}
+.mymodalinput:hover {
+  box-shadow: 0 5px 5px -2px rgba(30, 144, 255, 0.4);
+}
+.mymodalinput:focus {
+  border-bottom: 1px solid rgba(20, 144, 255, 1);
+}
+
+.mymodalbody {
+  text-align: center;
+  padding: 50px;
+  display: compact;
+}
+
+.mymodaltitle {
+  display: inline-block;
+  margin-left: 25px;
+  transition: 0.3s;
+}
+.mymodaltitle:hover {
+  box-shadow: 0px 7px 10px -6px dodgerblue;
+}
+
+.mymodaltitle.activetitle {
+  box-shadow: 0px 8px 10px -6px dodgerblue;
+}
+.mymodalhide {
+  display: none;
+}
+.mymodalbutton {
+  background-color: dodgerblue;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 3px;
+  text-align: center;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+
+/*MOBILE PHONES*/
+
+.hideit {
+  display: none;
+}
+.hideopp {
+  display: inline-block;
+}
+body.modal-open .slideout-panel {
+  transform: none !important;
+  z-index: unset;
+  will-change: unset;
+}
+.toggle-button {
+  display: compact;
+  color: white !important;
+  cursor: pointer;
+}
+
+.btnadd {
+  background-color: dodgerblue;
+  border-radius: 3px;
+  text-align: center;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+
+.opt2 {
+  display: none;
+}
+.opt3 {
+  display: inline-block;
+}
+.camps_heading {
+  font-size: 55px;
+}
+.modal-dialog {
+  top: 50px;
+}
+
+.profilemobilehead{
+  width : 100%;
+  height: 400px;
+  margin-top: 50px;
+
+}
+.profilemobileimg div{
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 250px;
+  border-radius: 250px;
+  box-shadow: 0 0 30px black;
+}
+.profilemobilename{
+  color:white;
+  margin-top:40px;
+  text-align: left;
+  font-size: 35px;
+  line-height: 35px;
+  padding: 0;
+}
+.profilemobileaddress{
+  color: white;
+  line-height: 40px;
+  text-align: left;
+  font-size: 20px;
+  width: 100%;
+}
+
+.profilemobileform{
+  background: white;
+  border-radius: 10px;
+  margin: 0 20px;
+  margin-top: 40px;
+  padding: 10px;
+  padding-bottom: 0;
+  padding-top: 20px;
+
+}
+.profilemobileform input{
+  display: inline-block;
+  width: 160px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  line-height: 18px;
+  font-size: 15px;
+  padding: 5px;
+
+}
+.profilemobileform input:focus {
+  border-bottom: 1px solid rgba(20, 144, 255, 1);
+}
+.profilemobilefollow{
+  background-color: rgba(0,0,0,0);
+  border: 2px solid white;
+  padding: 0 10px;
+  font-size: 20px;
+
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  outline: none;
+  text-decoration: none;
+  float: right;
+}
+.profilemobilefollowing{
+  padding: 0 20px;
+}
+.containermade{
+  padding: 0 30px;
+}
+.profilemaincamp{
+  height: 200px;
+  padding-left: 30px;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 30px;
+}
+.profilemainlink{
+  position:relative;
+  top:160px;
+  font-size:20px;
+  color:white;
+  display: block;
+}
+.profilemainfollow{
+  margin-top: 30px;
+  text-align: center;
+}
+.profilemainfollow .inpic{
+  width: 60px;
+  margin: 0 auto;
+  height: 60px;
+  border-radius: 60px;
+
+}
+.profilemainfollow .inlink {
+  display: block;
+  font-size: 20px;
+
+}
+
+
+
+
+
+
+
+
+.imgcont {
+  margin-top: 50px;
+  width:100%;
+  height: 500px;
+}
+.mainpic{
+    width: 100%;
+    height: 500px;
+
+    /*box-shadow: 0 0 10px white;*/
+}
+.deletedbtn{
+    display: inline;
+
+}
+.editbtn{
+    display: inline;
+    margin-right: 5px;
+
+}
+#editbtn {
+  width : auto;
+}
+.editbtn:hover{
+  color:white;
+}
+.options{
+    position: absolute;
+    bottom: -15px;
+    right: 1%;
+}
+.optionsmobile{
+  display : block;
+  margin-top:10px;
+  height:35px;
+}
+.showheadtext{
+  position: absolute;
+  bottom: 15px;
+  left: 5%;
+  color:white;
+  text-align: left;
+}
+.showheadname{
+  line-height: 30px;
+  font-size: 30px;
+  display: block;
+  margin-left: 5px;
+}
+.showheaduser{
+
+  font-size: 15px;
+  display: block;
+
+}
+.showheadaddress{
+  display: block;
+  margin-left: 5px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+.showheadoverlay{
+  position: absolute;
+  bottom: 0;
+  height: 160px;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+}
+#map {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.commentpost{
+    width: 100%;
+
+}
+.commentpost input{
+    width:60%;
+    line-height: 30px;
+    border-radius: 7px;
+    box-shadow: none;
+    border: none;
+    padding-left: 20px;
+}
+.commentpost button {
+    line-height: 22px;
+    border-radius: 10px;
+}
+.showcommentpic{
+  width:100%;
+  height:100%;
+  border-radius: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom : 0
+}
+.showcommentpicheader {
+  width : 100%;
+  padding-top : 100%;
+  position: relative;
+}
+.showcommenteditform textarea {
+  background: rgba(0,0,0,0);
+  border : 1px solid rgba(0,0,0,0.1);
+  border-radius: 5px;
+  width : 100%;
+  height : 150px;
+}
+.showcommenteditformdelete {
+  position: absolute;
+  bottom : 0;
+  left : 100px;
+}
+.showmaincommentrow{
+  text-align:left;
+  margin-bottom:10px;
+  padding : 10px 0;
+  border-radius: 10px;
+}
+.showmaincommentrow:nth-child(2n+1){
+  background: rgb(190,190,190)
+}
+.showmainsubcommentrow {
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-radius: 10px;
+}
+.showmainsubcommentrow:nth-child(2n+1){
+  background: rgb(170,170,170)
+}
+.showcarouselindicators {
+  bottom : 450px;
+}
+.hideitmodify{
+  display : none
+}
+.hideoppmodify{
+  display : block;
+}
+#overlayoverride{
+  height : 120px;
+}
+#optionsoverride{
+  display:none;
+}
+.showeditform{
+  background: white;
+  border-radius: 10px;
+  text-align: left;
+  margin-top: 40px;
+  padding: 30px;
+
+}
+.showeditform input{
+  display: inline-block;
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  margin-bottom: 30px;
+  transition: 0.3s;
+  line-height: 18px;
+  font-size: 15px;
+  padding: 5px;
+
+}
+.showeditform input:focus {
+  border-bottom: 1px solid rgba(20, 144, 255, 1);
+}
+
+.opt2img{
+    max-height: 270px;
+}
+.campsmaingoicon {
+  position: absolute;
+  right: 30px;
+  bottom:20px;
+  font-size: 20px;
+  color:white;
+}
+/* TABLETS*/
+@media only screen and (min-width : 600px){
+
+  .hideitmodify{
+    display : block;
+  }
+  .hideoppmodify{
+    display:none;
+  }
+  .showheadoverlay{
+    height: 120px;
+  }
+  #map {
+    height: 600px;
+  }
+  .opt2img{
+      max-height: 300px;
+  }
+  .opt2 {
+    display:none;
+
+  }
+  .opt3 {
+    display: inline-block;
+  }
+}
+/* QUERIES FOR GOOD RESPONSIVENESS */
+@media only screen and (min-width: 768px ) and (max-width: 1200px){
+  .opt2img{
+    max-height: 220px;
+  }
+}
+@media only screen and (min-width:1200px){
+  .opt2img{
+    max-height: 250px;
+  }
+}
+
+
+/*DESKTOP*/
+@media only screen and (min-width: 992px) {
+  .showcarouselindicators{
+    bottom : 10px;
+  }
+
+  .hideopp{
+    display: none;
+  }
+  .toggle-button {
+    display: none;
+  }
+  .navbar {
+    display: compact;
+  }
+  .opt2 {
+    display: inline-block;
+  }
+  .opt3 {
+    display: none;
+  }
+  .camps_heading {
+    font-size: 80px;
+  }
+  .hideit {
+    display: block;
+  }
+  .modal-dialog {
+    top: 125px;
+  }
+
+  .profilehead {
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    padding: 50px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+  }
+  .profileheadcontent {
+    display: block;
+
+    text-align: left;
+  }
+  .profileheadname {
+    font-size: 50px;
+    color: white;
+  }
+  .profileheadaddress {
+    font-size: 20px;
+    color: white;
+  }
+  .profilesharebutton {
+    background-color: rgba(0,0,0,0);
+    font-size: 14px;
+    border-radius: 18px;
+    text-align: center;
+    border: 2px solid white;
+    color: white;
+    float: right;
+    outline:none;
+    margin-left: 10px;
+  }
+  .profilecard {
+    position:absolute;
+    background: rgb(211,211,211);
+    top:150px;
+    left:60px;
+    right:70%;
+    padding-bottom: 30px;
+    text-align:left;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  .profilecardimage {
+    width : 100%;
+    height: 350px;
+    margin-bottom:10px;
+  }
+  .profilecardfollowbutton{
+    background-color: rgba(0,0,0,0);
+    border: 2px solid white;
+    padding: 0 10px;
+    font-size: 16px;
+    border-radius: 18px;
+    text-align: center;
+    margin-left: 15px;
+    float:right;
+    color: white;
+    outline: none;
+
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .profilecardfollowbutton2{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    padding: 0 10px;
+
+
+    text-align: center;
+
+    position: relative;
+    bottom: 50px;
+    color: black;
+    outline: none;
+    font-size: 25px;
+    text-decoration: none;
+
+  }
+  .profilecardfollowbutton:hover {
+    color: dodgerblue;
+    left: 200px;
+  }
+  .profilecardimageform{
+    background: white;
+    border-radius: 10px;
+    margin: 0 20px;
+    padding: 10px;
+    padding-bottom: 0;
+    padding-top: 20px;
+
+  }
+  .profilecardimageform input{
+    display: inline-block;
+    width: 160px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    line-height: 18px;
+    font-size: 15px;
+    padding: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .profilecardimageform input:hover {
+    box-shadow: 0 5px 5px -2px rgba(30, 144, 255, 0.4);
+  }
+  .profilecardimageform input:focus {
+    border-bottom: 1px solid rgba(20, 144, 255, 1);
+  }
+  .profilecardedit{
+    background-color: rgba(0,0,0,0);
+
+    padding :0 5px;
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
+
+    color: black;
+    outline: none;
+
+    text-decoration: none;
+
+  }
+  .profilecardeditform{
+    background: rgba(0,0,0,0);
+    border: none;
+    width : 100%;
+    height: 200px;
+  }
+
+
+  .containermade{
+    margin: 0 30px;
+    z-index: -1;
+  }
+  .profilemainlink{
+    position:relative;
+    top:160px;
+    font-size:20px;
+    color:white;
+    display: block;
+  }
+  .profilemainlink:hover{
+    color: white;
+    text-shadow: 0 0 10px white;
+  }
+
+  .profilemaincamptext{
+    font-size: 50px;
+    padding-top: 50px;
+  }
+  .profilemaincamp{
+    height: 200px;
+    padding-left: 30px;
+    width: 95%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 30px;
+  }
+  .profilemainfollow{
+    margin-top: 30px;
+    text-align: center;
+  }
+  .profilemainfollow img{
+    width: 100px;
+    height: 100px;
+
+    border-radius: 100px;
+
+  }
+  .profilemainfollow .inpic {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100px;
+  }
+  .profilemainfollow .inlink {
+    display: block;
+    font-size: 20px;
+
+  }
+  .profilemainfollow div a:hover {
+    text-shadow: 0 0 1px rgba(0,0,0,0.5);
+  }
+  .showcarouselindicators{
+    bottom:10px;
+  }
+
+}

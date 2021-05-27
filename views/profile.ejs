@@ -1,0 +1,309 @@
+<% include partials/header %>
+
+
+<!-- PROFILE CARD FOR DESKTOP -->
+<div class='profilecard hideit'>
+  <!-- img -->
+  <div class='profilecardimage' style='background:url(<%= userprofile.dp%>);background-position:center;background-size:cover;'></div>
+
+
+
+
+
+  <!-- edit img -->
+  <% if (editable) { %>
+      <a class='profilecardfollowbutton2' style='left:80%;border:none;color:black' href='/profile/<%= userprofile.id %>/?edit=true&field=image'><i class="fas fa-pencil-alt"></i></a>
+  <% } %>
+  <% if(edit== 'true' && field =='image'){ %>
+      <form class='profilecardimageform' action='/profile/<%= userprofile.id %>/image' method='POST' style="margin-bottom:20px;">
+          <input type='text' name='image' placeholder='Image source' autocomplete='off' value=<%=userprofile.dp %>/>
+          <button class='btnadd' style="font-size:15px;">Update</button>
+      </form>
+  <% } %>
+
+
+<!-- description -->
+  <div style='margin-left:20px;font-size:30px'>About
+    <% if (editable) { %>
+      <a class='profilecardedit' style="float:right;margin-right:30px;color:black" href='/profile/<%= userprofile.id %>/?edit=true&field=description'><i class="fas fa-pencil-alt"></i></a>
+  <% }%>
+</div>
+
+  <div style='margin: 0 20px; font-size:20px;line-height:25px'>
+
+    <% if (edit != 'true') { %>
+      <div><%= userprofile.description %></div>
+      <% if( !userprofile.description ) {  %>
+        <div style="font-size:15px">
+          No description
+        </div>
+        <% } %>
+    <% } %>
+    <% if(edit== 'true' && field =='description'){ %>
+        <form action='/profile/<%= userprofile.id %>/description' method='POST' >
+            <textarea name='description' placeholder='Description' class='profilecardeditform'><%=userprofile.description%></textarea>
+            <button class='btnadd' style="display:block;margin:0 auto" >Update description</button>
+        </form>
+    <% } %>
+  </div>
+
+<hr />
+<div style="width: 100%;text-align:center">
+  <div style=" font-size:20px; width: 40%;text-align:center;display:inline-block"><span style="display: block;font-size:35px;color: dodgerblue"><%=userprofile.liked.length%></span><span>followers</span></div>
+  <div style=" font-size:20px; width: 40%;text-align:center;display:inline-block"><span style="display: block;font-size:35px;color: dodgerblue"><%=userprofile.following.length%></span><span>following</span></div>
+
+</div>
+</div>
+
+<!-- SIDE AREA FOR DESKTOP -->
+  <div class='profilehead hideit' style='background:url(<%=userprofile.cover%>);background-size:cover;background-position:bottom;'>
+    <div class='row'>
+      <div class='col-lg-4'></div>
+    <div class="profileheadcontent col-lg-8">
+      <div class='row'>
+        <div class='col-lg-12' style="height:130px;"></div>
+
+        <div class='profileheadname col-lg-8'><%=userprofile.username%></div>
+        <div class='profileheadaddress col-lg-8'><%=userprofile.address%></div>
+        <div class='profileheadshare col-lg-4'>
+          <!-- follow button -->
+          <% if(!editable) { %>
+          <% var followit = true %>
+          <% userprofile.liked.forEach(function(userr){ %>
+          <% if (currentUser && currentUser.id == userr.id){
+              followit = false;
+              }  }) %>
+
+                     <% if(followit){ %>
+                     <a class='profilecardfollowbutton' style='text-decoration:none' href='/profile/<%= userprofile.id %>/like' <% if(!currentUser){  %>
+                      data-toggle='modal' data-target='#register'
+                     <% }  %>> Follow </a>
+                     <% } else { %>
+                     <a class='profilecardfollowbutton' style='text-decoration:none'
+
+                      href='/profile/<%= userprofile.id %>/unlike' <% if(!currentUser){  %>
+                      data-toggle='modal' data-target='#register'
+                     <% }  %>> Unfollow </a>
+                     <% } %>
+
+          <% } %>
+          <% if(editable) { %>
+            <a href='/profile/<%= userprofile.id %>/?edit=true&field=cover' class='profilesharebutton' style="border:none;font-size:20px;color:black"><i class="fas fa-pencil-alt"></i></a>
+          <% } %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+<!-- TOP SHOWCASE FOR MOBILE -->
+
+
+
+
+<div class='profilemobilehead hideopp' style='background:url(<%=userprofile.cover%>);background-size:cover;background-position:bottom;text-align:left'>
+  <div class='profilemobileimg' style="text-align:center">
+    <div style="background: url('<%=userprofile.dp%>'); background-size: cover; background-position: center" ></div>
+  </div>
+  <div class='container'>
+    <div class='profilemobilename'>
+      <%=userprofile.username%>
+    </div>
+    <div class='profilemobileaddress'>
+      <span><%=userprofile.address%></span>
+      <% if(editable) { %>
+        <a href='/profile/<%= userprofile.id %>/?edit=true&field=mobile' style="float:right;font-size:40px"><i class="fas fa-pencil-alt"></i></a>
+      <% } %>
+
+
+      <% if(!editable) { %>
+      <% var followit = true %>
+      <% userprofile.liked.forEach(function(userr){ %>
+      <% if (currentUser && currentUser.id == userr.id){
+          followit = false;
+          }  }) %>
+
+                 <% if(followit){ %>
+                 <a class='profilemobilefollow' style='text-decoration:none' href='/profile/<%= userprofile.id %>/like' <% if(!currentUser){  %>
+                  data-toggle='modal' data-target='#register'
+                 <% }  %>> Follow </a>
+                 <% } else { %>
+                 <a class='profilemobilefollow' style='text-decoration:none'
+
+                  href='/profile/<%= userprofile.id %>/unlike' <% if(!currentUser){  %>
+                  data-toggle='modal' data-target='#register'
+                 <% }  %>> Unfollow </a>
+                 <% } %>
+
+      <% } %>
+    </div>
+
+    <% if(edit== 'true' && field =='mobile'){ %>
+        <form class='profilemobileform' action='/profile/<%= userprofile.id %>/mobile' method='POST' >
+            <div style="display:block">
+              <label style="display:block;font-size:25px;">Cover Image Source</label>
+              <input type='text' name='cover' placeholder='Image source' autocomplete='off' value=<%=userprofile.cover %> style='width:90%'/>
+            </div>
+            <div style="display:block">
+              <label style="display:block;font-size:25px;">Address</label>
+              <input type='text' name='address' placeholder='Address' autocomplete='off' value='<%=userprofile.address %>' style='width:90%'/>
+            </div>
+            <div style="display:block">
+              <label style="display:block;font-size:25px;">Profile Picture Source</label>
+              <input type='text' name='dp' placeholder='Profile Picture' autocomplete='off' value='<%=userprofile.dp %>' style='width:90%'/>
+            </div>
+            <div style="display:block">
+              <label style="display:block;font-size:25px;">Description</label>
+              <textarea name='description' placeholder='Description' autocomplete='off' style='width:90%'><%=userprofile.description %></textarea>
+            </div>
+
+            <button class='btnadd' style="font-size:15px;margin-top:20px">Update</button>
+        </form>
+    <% } %>
+</div>
+<div class='containermade'>
+
+
+
+    <div style="font-size:30px;display:block;margin-top:40px;">
+      About
+    </div>
+
+    <div>
+      <%= userprofile.description%>
+    </div>
+
+    <% if( !userprofile.description ) {  %>
+      <div style="font-size:20px">
+        No description
+      </div>
+      <% } %>
+    <hr />
+
+    <div style="width: 100%;text-align:center">
+      <div style=" font-size:20px; width: 40%;text-align:center;display:inline-block"><span style="display: block;font-size:35px;color: dodgerblue"><%=userprofile.liked.length%></span><span>followers</span></div>
+      <div style=" font-size:20px; width: 40%;text-align:center;display:inline-block"><span style="display: block;font-size:35px;color: dodgerblue"><%=userprofile.following.length%></span><span>following</span></div>
+
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+<!-- main side area -->
+<div class='containermade'>
+
+  <div class='row' style="margin-top:30px;">
+    <div class='col-lg-4 col-md-12 hideit' style="padding:0;height:50px"></div>
+    <div class='col-lg-8 col-md-12' style="padding:0;text-align:left">
+
+
+      <% if(edit== 'true' && field =='cover'){ %>
+          <form class='profilecardimageform' action='/profile/<%= userprofile.id %>/cover' method='POST' style="margin-bottom:30px;">
+              <div style="display:block">
+                <label style="display:block;font-size:25px;margin-left:20px">Cover Image Source</label>
+                <input type='text' name='cover' placeholder='Image source' autocomplete='off' value=<%=userprofile.cover %> style='width:90%'/>
+              </div>
+              <div style="display:block">
+                <label style="display:block;font-size:25px;margin-left:20px">Address</label>
+                <input type='text' name='address' placeholder='Address' autocomplete='off' value='<%=userprofile.address %>' style='width:90%'/>
+              </div>
+
+              <button class='btnadd' style="font-size:15px;margin-left:20px">Update</button>
+          </form>
+      <% } %>
+
+
+
+
+      <div style="font-size:40px;"><%=userprofile.username%>'s Campgrounds</div>
+      <hr />
+      <% if(foundcamps.length == 0){ %>
+        <div style='font-size:17px'>
+          No Campgrounds Yet
+        </div>
+    <%  } %>
+
+      <% foundcamps.forEach(function(camp){ %>
+        <div class='profilemaincamp img-thumbnail' style="background:url(<%=camp.url%>);background-size:cover;background-position:center">
+          <a class='profilemainlink' style="text-decoration:none" href='/campgrounds/<%=camp.id%>'>
+            <%=camp.name%> <i class="fas fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      <% }) %>
+
+      <hr />
+
+      <div style="font-size:40px">Followers</div>
+
+      <hr />
+      <% if(userprofile.liked.length == 0){ %>
+        <div style='font-size:17px'>No Followers</div>
+      <% } %>
+      <div class='row'>
+        <% userprofile.liked.forEach(function(following){ %>
+          <div class='profilemainfollow col-lg-4 col-md-4 col-6' style="padding:0">
+              <div style="background: url('<%=following.dp%>'); background-size: cover; background-position: center" class='inpic'></div>
+
+            <div class='inlink'>
+              <a href='/profile/<%=following.id%>' style="text-decoration:none"> <%= following.username %> <i class="fas fa-arrow-circle-right"></i> </a>
+            </div>
+          </div>
+
+        <% }) %>
+      </div>
+
+      <hr />
+
+      <div style="font-size:40px">Following</div>
+
+      <hr />
+      <% if(userprofile.following.length == 0){ %>
+        <div style='font-size:17px'>Following No one</div>
+      <% } %>
+      <div class='row' style="margin-bottom:80px">
+        <% userprofile.following.forEach(function(following){ %>
+          <div class='profilemainfollow col-lg-4 col-md-4 col-6' style="padding:0">
+
+            <div style="background: url('<%=following.dp%>'); background-size: cover; background-position: center" class='inpic'></div>
+            <div class='inlink'>
+              <a href='/profile/<%=following.id%>' style="text-decoration:none"> <%= following.username %> <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+        <% }) %>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include partials/modals %>
+<% include partials/footers %>

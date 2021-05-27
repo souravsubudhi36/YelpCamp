@@ -1,0 +1,89 @@
+
+<% include partials/header %>
+
+
+
+    <div class='jumbotron campsheader'>
+
+      <div id='scene'>
+        <div data-depth='0.3'><h1 class='camps_heading'>Welcome To YelpCamp!</h1>
+        <p>View our hand-picked campgrounds from all over the world</p> <br></div>
+      </div>
+
+        <button
+        <% if(!currentUser){  %>
+            class='btnadd' data-toggle='modal' data-target='#register'
+           <% } else { %>
+          class='btnadd newformtoggle'
+          <%  }  %>
+        >Add New Campground</button>
+    </div>
+    <div class="container">
+            <div class='container formbody'>
+                <div class='jumbotron'>
+                    <h1>Create a New Campground</h1>
+                    <p>Share your views, experiences and adventures with fellow travellers</p>
+                </div>
+            <form action='/campgrounds' method='POST' class='nc'>
+                <input type='text' placeholder="Campground's Name" name='name' class='newcamp' style='background-color:rgba(255,255,255,0.2)' autocomplete="off"><br>
+                <input type='text' placeholder='Image URL' name='image' class='newcamp' style='background-color:rgba(255,255,255,0.2)' autocomplete="off"><br>
+                <!--<input type='text' placeholder='Description' name='description' class='newcamp'><br>-->
+                <textarea wrap='hard' name='description' class='newcamp' style='background-color:rgba(255,255,255,0.2)' placeholder="Description"></textarea><br>
+                <input type='submit' class='newcamps btn mymodalbutton' style='background:white;color:black;box-shadow:0 0 10px white;'><br>
+            </form>
+            </div>
+
+
+            <div class='row'>
+
+            <% camps.forEach(function(camp){ %>
+
+
+              <div class='col-sm-12 col-md-6 col-lg-4 opt2'>
+                <a style='display:block;text-decoration:none;height:100%;width:100%' href= <%= '/campgrounds/'+camp._id %> >
+                  <span class='campsmaingoicon'><i class="fas fa-arrow-circle-right"></i></span>
+                  <img src= <%= camp.url %> class='opt2img img-fluid respi img-thumbnail'>
+                  <span class="opt2overlay">
+                      <span class="ovtext" >  <%= camp.name %>  </span>
+                      <div class='overlay'>
+                        <div class='dp' style="background: url('<%= camp.creator.dp%>');background-size:cover;background-position:center"></div> <div class='dptag'> |  <%= camp.creator.username %></div>
+                      </div>
+                  </span>
+                  </a>
+              </div>
+
+
+                <div class='col-sm-12 col-md-6 col-lg-4 opt3'>
+                  <img src= <%= camp.url %> class='opt2img img-fluid respi img-thumbnail'>
+                  <a style='display:block;text-decoration:none;' href= <%= '/campgrounds/'+camp._id %> >
+                  <div class='overlay overlayforsmall' style="font-size:13px">
+                    <div class='dp' style="background: url('<%= camp.creator.dp%>');background-size:cover;background-position:center;margin-top:0"></div> <div class='dptag'> |  <%= camp.creator.username %></div>  <span style="float:right;padding-top:2px"><%= camp.name %> <i class="fas fa-arrow-circle-right"></i></span>
+                  </div>
+                </a>
+                </div>
+            <% }) %>
+        </div>
+
+    <br>
+    <br>
+    <br>
+
+</div>
+<script>
+
+    document.getElementsByClassName('newformtoggle')[0].addEventListener('click', function(){
+        document.getElementsByClassName("formbody")[0].classList.toggle('extend');
+
+
+      });
+
+</script>
+
+<script>
+  var scene = document.getElementById('scene');
+  var parallaxInstance = new Parallax(scene, {
+    hoverOnly: true
+  });
+</script>
+<% include partials/modals %>
+<% include partials/footers %>

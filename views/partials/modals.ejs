@@ -1,0 +1,40 @@
+
+<script>
+document.querySelector('.mymodalregister').addEventListener('click', function() {
+  document.querySelector('.mymodalregisterbody').classList.remove('mymodalhide');
+  document.querySelector('.mymodalloginbody').classList.add('mymodalhide');
+  document.querySelector('.mymodalregister').classList.add('activetitle');
+  document.querySelector('.mymodallogin').classList.remove('activetitle');
+});
+document.querySelector('.mymodalclose').addEventListener('click', function() {
+  document.querySelector('.mymodalregisterbody').classList.remove('mymodalhide');
+  document.querySelector('.mymodalloginbody').classList.add('mymodalhide');
+  document.querySelector('.mymodalregister').classList.add('activetitle');
+  document.querySelector('.mymodallogin').classList.remove('activetitle');
+});
+document.querySelector('.mymodallogin').addEventListener('click', function() {
+  document.querySelector('.mymodalregisterbody').classList.add('mymodalhide');
+  document.querySelector('.mymodalloginbody').classList.remove('mymodalhide');
+  document.querySelector('.mymodalregister').classList.remove('activetitle');
+  document.querySelector('.mymodallogin').classList.add('activetitle');
+});
+document.getElementsByClassName('mymodalcontrol')[0].addEventListener('click', function() {
+  document.querySelector('.mymodalregisterbody').classList.add('mymodalhide');
+  document.querySelector('.mymodalloginbody').classList.remove('mymodalhide');
+  document.querySelector('.mymodalregister').classList.remove('activetitle');
+  document.querySelector('.mymodallogin').classList.add('activetitle');
+});
+document.getElementsByClassName('mymodalcontrol1')[0].addEventListener('click', function() {
+  document.querySelector('.mymodalregisterbody').classList.add('mymodalhide');
+  document.querySelector('.mymodalloginbody').classList.remove('mymodalhide');
+  document.querySelector('.mymodalregister').classList.remove('activetitle');
+  document.querySelector('.mymodallogin').classList.add('activetitle');
+});
+document.querySelector('.mymodalinterferereg').addEventListener('click', function() {
+  slideout.toggle();
+});
+document.querySelector('.mymodalinterferelog').addEventListener('click', function() {
+  slideout.toggle();
+});
+
+</script>

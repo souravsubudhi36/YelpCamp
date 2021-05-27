@@ -1,0 +1,55 @@
+/*css for styling the input form*/
+.formbody .newcamp{
+    display: block;
+    color: white;
+    text-shadow: 0 0 10px white;
+    line-height: 30px;
+    font-size: 25px;
+    width: 100%;
+    border-color: rgba(0,0,0,0.1);
+
+    text-align: center;
+
+
+}
+.formbody ::-webkit-input-placeholder {
+  text-shadow: none;
+  color: black;
+  font-size: 20px;
+}
+.formbody .nc{
+    width: 75%;
+    text-align: center;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.formbody .newcamp:focus{
+    outline: none;
+    box-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+.formbody {
+    background: url('/campsnew.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 0px;
+    transition: 1s;
+    overflow: hidden;
+
+}
+.formbody .jumbotron{
+    background: rgba(255,255,255,0);
+    color: white;
+    text-shadow: 0 0 10px white;
+    /*margin-top: 100px;*/
+    padding-top: 40px;
+}
+.extend{
+    height: 800px ;
+    /*background: rgb(0,0,0);*/
+    transition: 1s;
+    margin-bottom: 50px;
+}
+/*css done*/

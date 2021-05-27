@@ -1,0 +1,218 @@
+body {
+  overflow-x: hidden;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.hero{
+  background: url('/fire.gif');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+.ignite {
+  color: white;
+  font-size: 150px;
+  position: absolute;
+  bottom: 30px;
+  right : 30px;
+}
+.explorepics{
+  background: url('/hero2.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.explore {
+  text-align: left;
+  color: white;
+  font-size: 150px;
+  padding-top: 160px;
+}
+.exploreimages1 {
+  background: url('/exploreimages1.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.dream {
+  background: url('/dream.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.dreamtext{
+  color: white;
+  font-size: 150px;
+  padding-top: 160px;
+  position: absolute;
+  left : -500px;
+}
+.dreamfall{
+  background: url('/dreamfall.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.camp{
+  background: url('/camp.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.camptext{
+  color: white;
+  font-size: 150px;
+  padding-top: 100px;
+  padding-left: 200px;
+
+}
+.yelpcamp{
+  background: url('/yelpcamp.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.yelp{
+  display: block;
+  color: white;
+  font-size: 150px;
+  padding-top: 80px;
+  position: absolute;
+  left: -300px;
+}
+.final {
+  background: url('/final.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+.end{
+  background: url('/end.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  padding-right: 50px;
+}
+.end:hover {
+  opacity: 0.95;
+}
+.to {
+  color: white;
+  font-size: 60px;
+  padding-top: 120px;
+  float: right;
+
+}
+.exploreimages1, .dreamfall, .camp, .final {
+  display : block;
+}
+.yelpcampmobile{
+  display:none;
+}
+
+
+
+@media only screen and (max-width : 992px) {
+  .ignite, .explore, .dreamtext {
+    font-size: 130px;
+    position: static;
+    padding-top: 100px;
+    text-align: center;
+  }
+  .yelp {
+    display :none;
+  }
+
+  .hero, .explorepics, .dream, .camp, .end, .yelpcamp {
+    height: 400px;
+  }
+
+
+
+  .to {
+    font-size: 50px;
+    padding-top : 160px;
+  }
+
+  .exploreimages1, .dreamfall, .camp, .final {
+    display : none;
+  }
+
+
+  .yelpcampmobile{
+    display : block;
+    color: white;
+    font-size: 110px;
+    padding-top: 100px;
+    text-align: center;
+  }
+}
+
+
+@media only screen and (max-width : 600px){
+  .ignite, .explore, .dreamtext {
+    font-size: 80px;
+    position: static;
+    padding-top: 80px;
+    text-align: center;
+  }
+  .yelp {
+    display :none;
+  }
+
+  .hero, .explorepics, .dream, .camp, .end, .yelpcamp {
+    height: 300px;
+  }
+
+
+
+  .to {
+    font-size: 40px;
+  }
+
+  .exploreimages1, .dreamfall, .camp, .final {
+    display : none;
+  }
+
+
+  .yelpcampmobile{
+    display : block;
+    color: white;
+    font-size: 70px;
+    padding-top: 80px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width : 445px) {
+  .to {
+    font-size : 30px;
+    padding-top: 120px;
+  }
+}

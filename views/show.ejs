@@ -1,0 +1,342 @@
+<% include partials/header %>
+
+
+
+    <div class='imgcont'>
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators showcarouselindicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+
+    <% foundcamp.supportingimages.forEach(function(pic){ %>
+
+    <li data-target="#demo" data-slide-to='<%= foundcamp.supportingimages.indexOf(pic)+1 %>' ></li>
+
+    <% }) %>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class='mainpic' style="background:url(<%= foundcamp.url %>);background-size:cover;background-position:center"></div>
+
+    </div>
+
+    <% foundcamp.supportingimages.forEach(function(pic){ %>
+        <div class="carousel-item">
+          <div class='mainpic' style="background:url(<%= pic %>);background-size:cover;background-position:center"></div>
+
+    </div>
+    <% }) %>
+
+
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+        <div class='showheadoverlay' <% if(!currentUser){ %> id='overlayoverride' <%  } %> <% if(currentUser && currentUser.id != foundcamp.creator.id){ %> id='overlayoverride' <%  } %> >
+
+        </div>
+
+        <div class='options hideitmodify'  >
+            <% if(currentUser){ if(foundcamp.creator.id == (currentUser._id)){ %>
+    <a href='/campgrounds/<%=foundcamp._id%>/?editm=true&field=camp' class='btnadd editbtn' style="text-decoration:none; background:#ffbb33 ">Edit</a>
+    <a href='/campgrounds/<%=foundcamp.id%>/?editm=true&field=addimg' class='btnadd editbtn' style="text-decoration:none;background:#00C851">Add Images</a>
+    <form method="POST" action='/campgrounds/<%=foundcamp.id%>/?_method=DELETE' class='deletedbtn'>
+        <button class='btnadd' style="background:#ff4444">Delete</button>
+    </form>
+    <% } }%>
+        </div>
+
+        <div class='showheadtext'>
+          <div class='showheadname'>
+            <%= foundcamp.name %>
+          </div>
+          <div class='showheadaddress'>
+            <%= foundcamp.address %>
+          </div>
+          <div class='showheaduser'>
+            <a href='/profile/<%= foundcamp.creator.id %>' style="display:block;text-decoration:none"><div class='dp' style="background: url('<%= foundcamp.creator.dp%>');background-size:cover;background-position:center;margin-top:0"></div> <div class='dptag'> |  <%= foundcamp.creator.username %> <i class="fas fa-arrow-circle-right"></i></div></a>
+          </div>
+          <div class='optionsmobile hideoppmodify' <% if(currentUser && currentUser.id != foundcamp.creator.id){ %> id='optionsoverride' <%  } %> <% if(!currentUser){ %> id='optionsoverride' <%  } %>  >
+              <% if(currentUser){ if(foundcamp.creator.id == (currentUser._id)){ %>
+      <a href='/campgrounds/<%=foundcamp._id%>/?editm=true&field=camp' class='btnadd editbtn' style="text-decoration:none; background:#ffbb33 ">Edit</a>
+      <a href='/campgrounds/<%=foundcamp.id%>/?editm=true&field=addimg' class='btnadd editbtn' style="text-decoration:none;background:#00C851">Add Images</a>
+      <form method="POST" action='/campgrounds/<%=foundcamp.id%>/?_method=DELETE' class='deletedbtn'>
+          <button class='btnadd' style="background:#ff4444">Delete</button>
+      </form>
+      <% } }%>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class='container'>
+  <% if(editablem){ %>
+
+
+  <% if(edit== 'true' && field =='camp'){ %>
+      <form class='showeditform' action='/campgrounds/<%= foundcamp._id %>/?_method=PUT' method='POST' >
+          <div style="display:block">
+            <label style="display:block;font-size:25px;">Camp Name</label>
+            <input type='text' placeholder="Campground's name" name='name' autocomplete='off' value="<%= foundcamp.name %>"  style='width:90%'/>
+          </div>
+          <div style="display:block">
+            <label style="display:block;font-size:25px;">Image Source</label>
+            <input type='text' placeholder='URL for Campground Image' name='image' autocomplete='off'  style='width:90%' value='<%=foundcamp.url %>'/>
+          </div>
+          <div style="display:block">
+            <label style="display:block;font-size:25px;">Address</label>
+            <input type='text' placeholder='Address' name='address' autocomplete='off'  style='width:90%' value='<%=foundcamp.address %>'/>
+          </div>
+          <div style="display:block">
+            <label style="display:block;font-size:25px;">Location (Enter the latitude and longitude )</label>
+            <input type='text' placeholder='Latitude' name='lat' autocomplete='off'  style='width:90%' value='<%=foundcamp.location.lat%>'/>
+            <input type='text' placeholder='Longitude' name='lng' autocomplete='off'  style='width:90%' value='<%=foundcamp.location.lng%>'/>
+          </div>
+
+          <div style="display:block">
+            <label style="display:block;font-size:25px;">Description</label>
+            <textarea name='description' placeholder='Description' autocomplete='off' style='width:90%'><%= foundcamp.description %></textarea>
+          </div>
+
+          <button class='btnadd' style="font-size:15px;margin-top:20px">Update</button>
+      </form>
+  <% } } %>
+</div>
+
+<div class='container'>
+  <% if(editablem){ %>
+
+
+  <% if(edit== 'true' && field =='addimg'){ %>
+      <form class='showeditform' action='/campgrounds/<%= foundcamp._id %>/supportimg' method='POST' >
+          <div style="display:block">
+            <label style="display:block;font-size:25px;">Add comma seperated sources for adding more images to the campground</label>
+            <input  placeholder="Image Source(s)" name='images' autocomplete='off'  style='width:90%' />
+          </div>
+
+
+          <button class='btnadd' style="font-size:15px;margin-top:20px">Update</button>
+      </form>
+  <% } } %>
+</div>
+
+
+
+<div class='containermade' style="margin-top:30px">
+
+  <div class='row'>
+    <div id="map" class='col-md-4 col-12'></div>
+    <div class='col-md-8 col-12'>
+        <div class="containermade" style="text-align:left">
+          <span style="font-size:40px">About</span>
+          <hr />
+          <%= foundcamp.description %>
+        </div>
+
+    </div>
+    <div class='col-12'>
+      <hr />
+    </div>
+    <div class='col-12'>
+      <form action='/campgrounds/<%=foundcamp._id%>/newcomment' method="POST" class='commentpost'>
+      <input type='text' placeholder='comment' name='text'>
+      <button class='btnadd'
+      <% if(!currentUser){  %>
+          data-toggle='modal' data-target='#register' type='button'
+         <% }  %>
+      >Post</button>
+  </form>
+
+    </div>
+
+    <div class='col-12'>
+      <div class='container'>
+        <% foundcamp.comments.forEach(function(comm){ %>
+
+        <% if(comm.parentt == "{}"){ %>
+        <div class='row showmaincommentrow'>
+
+
+
+
+
+
+
+
+  <div class='col-3 col-md-2'>
+    <div class='showcommentpicheader'>
+      <div style="background: url('<%= comm.author.dp%>');background-size:cover;background-position:center" class='showcommentpic'></div>
+    </div>
+    </div>
+    <div class='col-9 col-md-10'>
+      <div class='row'>
+
+        <div class='col-12'>
+            <span style="font-size:30px"><%= comm.author.username %></span>
+            <% if(currentUser && comm.author.id.equals(currentUser._id) && editable==false){ %>
+            <a style="float:right" href='/campgrounds/<%=foundcamp._id%>/?edit=true&id=<%=comm._id%>' class='btn btn-md' id='editbtn' ><i class="far fa-edit"></i></a>
+            <% } %>
+        </div>
+        <div class='col-12' style="font-size:15px;margin-top:10px">
+          <% if(editable==true && currentUser && comm.author.id.equals(currentUser._id) && comm._id.equals(commentid)){ %>
+              <form action='/campgrounds/<%=foundcamp._id%>/<%=comm._id%>/?_method=PUT' method='POST' class='showcommenteditform'>
+                  <textarea type='text' name ='text'><%=comm.text %></textarea>
+                  <button class='btnadd'>Save</button>
+              </form>
+              <form method='POST' action='/campgrounds/<%=foundcamp._id%>/<%=comm._id%>/?_method=DELETE' class='showcommenteditformdelete'>
+                  <button class='btnadd' style="background:#ff4444"><i class="far fa-trash-alt"></i></button>
+              </form>
+
+          <% } else { %>
+          <%= comm.text  %>
+          <% } %>
+        </div>
+        <div class='col-12'>
+          <% if(currentUser){ %>
+          <a class='togglereply btn' style='width:auto;margin-top:5px'><i class="fas fa-reply"></i></a>
+          <form action='/campgrounds/<%=foundcamp._id%>/newcomment/?sub=true&id=<%=comm._id %>' method="POST" class='commentpost replyhandler'>
+          <input type='text' placeholder='comment' name='text'>
+          <button class='btnadd'
+
+          >Reply</button>
+      </form>
+      <% } %>
+        </div>
+
+        <div class='col-12' style="margin-top:20px;">
+          <% foundcamp.comments.forEach(function(subcomm){ %>
+          <% if(subcomm.parentt != "{}" && comm.id == subcomm.parentt.id) { %>
+          <div class='row showmainsubcommentrow' >
+            <div class='col-3 col-md-2'>
+              <div class='showcommentpicheader'>
+                <div style="background: url('<%= subcomm.author.dp%>');background-size:cover;background-position:center" class='showcommentpic'></div>
+              </div>
+            </div>
+            <div class='col-9 col-md-10'>
+              <div class='row'>
+                <div class='col-12'>
+                  <span style="font-size:25px"><%= subcomm.author.username %></span>
+                </div>
+                <div class='col-12' style="font-size:15px; margin-top:10px">
+                    <%= subcomm.text %>
+                </div>
+
+
+
+
+          </div>
+          </div>
+
+          </div>
+          <% } %>
+          <% }) %>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+    <% } %>
+
+    <% }); %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<% var latitude = foundcamp.location.lat %>
+<% var longitude = foundcamp.location.lng %>
+
+
+<script>
+var i = 0;
+var fake = [];
+// eurreeeekaa!!!!!!
+
+var x = document.getElementsByClassName("togglereply");
+const y = document.getElementsByClassName("replyhandler");
+for (i; i < x.length; i++) {
+  fake.push("a");
+}
+fake.forEach(function(currentvalue, currentindex, listobj) {
+  x[currentindex].addEventListener("click", function() {
+    y[currentindex].classList.toggle("extendreply");
+  });
+});
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDha7pd2zb-WwPqRDQOOaEyt0wPvDrCZN4&callback=initMap">
+</script>
+
+<script>
+
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+
+  var uluru = { lat: -25.344, lng: 131.036};
+  var location = {lat : <%= latitude %> , lng : <%= longitude %> };
+  // The map, centered at Uluru
+  var map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: location
+  });
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({ position: location, map: map });
+}
+</script>
+
+
+
+
+
+
+
+
+<% include partials/modals %>
+<% include partials/footers %>
